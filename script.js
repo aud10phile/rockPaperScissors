@@ -33,26 +33,24 @@ function computerChoice() {
     }};
 
 // Define superiority
-
-
 // Start round - check winner, display winner, prompt players to pick a move, display moves. If no winner, repeat round
 function round(playerChoice, computerChoice) {
     // check for winner
-    if (playerChoice == choices[0] && computerChoice == choices[2]) {
-        console.log('You wins');
-    } else if (playerChoice == choices[2] && computerChoice == choices[1]) {
-        console.log('You wins');
-    } else if (playerChoice == choices[1] && computerChoice == choices[0]) {
-        console.log('You wins');
-    if (computerChoice == choices[0] && playerChoice == choices[2]) {
+    if (playerChoice === choices[0] && computerChoice === choices[2]) {
+        console.log('You win');
+    } else if (playerChoice === choices[2] && computerChoice === choices[1]) {
+        console.log('You win');
+    } else if (playerChoice === choices[1] && computerChoice === choices[0]) {
+        console.log('You win');
+    } else if (computerChoice === choices[0] && playerChoice === choices[2]) {
         console.log('Computer wins');
-    } else if (computerChoice == choices[2] && playerChoice == choices[1]) {
+    } else if (computerChoice === choices[2] && playerChoice === choices[1]) {
         console.log('Computer wins');
-    } else if (computerChoice == choices[1] && playerChoice == choices[0]) {
+    } else if (computerChoice === choices[1] && playerChoice === choices[0]) {
         console.log('Computer wins');
     }else {
         console.log('It\'s a tie!');
-    }}};
+    }};
 
 function game() {
     for (let i = 0; i < 5; i++) {
