@@ -1,4 +1,4 @@
-// Defince choices
+// Define choices
 let choices = ['rock','paper','scissors'];
 
 // Create players
@@ -23,45 +23,46 @@ function computerChoice() {
     let computerSelection = Math.floor(Math.random()*choices.length)
     if (computerSelection === 0) {
         console.log('Computer played Rock');
-        return choices[0]
+        return choices[0];
     } else if (computerSelection === 1) {
         console.log('Computer played Paper');
-        return choices[1]
+        return choices[1];
     } else {
         console.log('Computer played Scissors');
-        return choices[2]
-    };
-}
+        return choices[2];
+    }};
 
 // Define superiority
-function superiority() {
-    // rock beats scissors
-    choices[0] > choices[2];
-    // scissors beats paper
-    choices[2] > choices[1];
-    // paper beats rock
-    choices[1] > choices[0];
-}
+
 
 // Start round - check winner, display winner, prompt players to pick a move, display moves. If no winner, repeat round
 function round(playerChoice, computerChoice) {
     // check for winner
-    if (computerChoice > playerChoice) {
+    if (playerChoice == choices[0] && computerChoice == choices[2]) {
+        console.log('You wins');
+    } else if (playerChoice == choices[2] && computerChoice == choices[1]) {
+        console.log('You wins');
+    } else if (playerChoice == choices[1] && computerChoice == choices[0]) {
+        console.log('You wins');
+    if (computerChoice == choices[0] && playerChoice == choices[2]) {
         console.log('Computer wins');
-    } else if (playerChoice > computerChoice) {
-        console.log('Player wins');
-    } else {
+    } else if (computerChoice == choices[2] && playerChoice == choices[1]) {
+        console.log('Computer wins');
+    } else if (computerChoice == choices[1] && playerChoice == choices[0]) {
+        console.log('Computer wins');
+    }else {
         console.log('It\'s a tie!');
-    }};
+    }}};
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        console.log('Round ' + (i+1))
-        round();
+        console.log('Round ' + (i+1));
         playerChoice();
         computerChoice();
-}};
+        round();
+    }
+    // End game - display winning message
+    console.log('Good game!');
+};
 
-game();
-
-// End game - display winning message
+game()
