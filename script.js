@@ -1,7 +1,10 @@
 // Define choices
-let choices = ['rock','paper','scissors'];
+let choices = ['1rock','2paper','3scissors'];
 
 // Create players
+let player = prompt('What is your name', '');
+alert(`Welcome ${player} Let's play Rock, Paper, Scissors. You go first.`)
+
 function playerChoice() {
     let playerSelection =  prompt('Choose Rock, Paper or Scissors', '')
     playerSelection = playerSelection.toLowerCase('');
@@ -32,35 +35,37 @@ function computerChoice() {
         return choices[2];
     }};
 
-// Define superiority
 // Start round - check winner, display winner, prompt players to pick a move, display moves. If no winner, repeat round
 function round(playerChoice, computerChoice) {
     // check for winner
-    if (playerChoice === choices[0] && computerChoice === choices[2]) {
-        console.log('You win');
-    } else if (playerChoice === choices[2] && computerChoice === choices[1]) {
-        console.log('You win');
-    } else if (playerChoice === choices[1] && computerChoice === choices[0]) {
-        console.log('You win');
-    } else if (computerChoice === choices[0] && playerChoice === choices[2]) {
-        console.log('Computer wins');
-    } else if (computerChoice === choices[2] && playerChoice === choices[1]) {
-        console.log('Computer wins');
-    } else if (computerChoice === choices[1] && playerChoice === choices[0]) {
-        console.log('Computer wins');
-    }else {
-        console.log('It\'s a tie!');
+    let playerWin = 0;
+    let computerWin = 0;
+    
+    if (playerWin < 4 && computerWin < 4) {
+        playerChoice();
+        computerChoice();
+        if (playerChoice > computerChoice) {
+            console.log('You win');
+            playerWin++
+        } else if (computerChoice > playerChoice) {
+            console.log('Computer wins');
+            computerWin++
+        }else {
+            console.log('It\'s a tie!');
+        }
+    } else {
+        return;
     }};
+
+let winner = player;
 
 function game() {
     for (let i = 0; i < 5; i++) {
         console.log('Round ' + (i+1));
-        playerChoice();
-        computerChoice();
         round();
     }
     // End game - display winning message
-    console.log('Good game!');
+    console.log(`Good game! ${winner} won!`);
 };
 
 game()
