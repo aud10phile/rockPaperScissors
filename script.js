@@ -1,67 +1,84 @@
 // Define choices
-let choices = ['1rock','2paper','3scissors'];
+const choices = ['rock', 'paper', 'scissors'];
 
 // Create players
 let player = prompt('What is your name', '');
 alert(`Welcome ${player} Let's play Rock, Paper, Scissors. You go first.`)
 
 function playerChoice() {
-    let playerSelection =  prompt('Choose Rock, Paper or Scissors', '')
-    playerSelection = playerSelection.toLowerCase('');
+    let playerChoice = prompt('Choose Rock, Paper or Scissors', '')
+    playerChoice = playerChoice.toLowerCase('');
 
-    if (playerSelection === choices[0]) {
+    if (playerChoice === choices[0]) {
         console.log('You played Rock');
-        return choices[0]
-    } else if (playerSelection === choices[1]) {
-        console.log('You played Paper'); 
-        return choices[1]
-    } else if (playerSelection === choices[2]) {
+        console.log(playerChoice);
+        return playerChoice;
+    } else if (playerChoice === choices[1]) {
+        console.log('You played Paper');
+        console.log(playerChoice);
+        return playerChoice;
+    } else if (playerChoice === choices[2]) {
         console.log('You played Scissors');
-        return choices[2]
+        console.log(playerChoice);
+        return playerChoice;
     } else {
         playerChoice()
-    }};
+    }
+};
 
 function computerChoice() {
-    let computerSelection = Math.floor(Math.random()*choices.length)
-    if (computerSelection === 0) {
+    let computerChoice = Math.floor(Math.random() * choices.length)
+    if (computerChoice === 0) {
         console.log('Computer played Rock');
-        return choices[0];
-    } else if (computerSelection === 1) {
+        console.log(computerChoice);
+        return computerChoice;
+    } else if (computerChoice === 1) {
         console.log('Computer played Paper');
-        return choices[1];
+        console.log(computerChoice);
+        return computerChoice;
     } else {
         console.log('Computer played Scissors');
-        return choices[2];
-    }};
+        console.log(computerChoice);
+        return computerChoice;
+    }
+};
 
 // Start round - check winner, display winner, prompt players to pick a move, display moves. If no winner, repeat round
 function round(playerChoice, computerChoice) {
     // check for winner
-    let playerWin = 0;
-    let computerWin = 0;
-    
-    if (playerWin < 4 && computerWin < 4) {
-        playerChoice();
-        computerChoice();
-        if (playerChoice > computerChoice) {
-            console.log('You win');
-            playerWin++
-        } else if (computerChoice > playerChoice) {
-            console.log('Computer wins');
-            computerWin++
-        }else {
-            console.log('It\'s a tie!');
-        }
-    } else {
-        return;
+    /* let playerWin = 0;
+    let computerWin = 0; */
+    switch (true) {
+        case (playerChoice === computerChoice):
+            console.log('It\'s a tie!')
+            break
+        case (playerChoice === choices[0] && computerChoice === choices[2]):
+            console.log('Rock beats scissors, you win!')
+            break
+        case (playerChoice === choices[1] && computerChoice === choices[0]):
+            console.log('Paper beats rock, you win!')
+            break
+        case (playerChoice === choices[2] && computerChoice === choices[1]):
+            console.log('Scissors beat paper, you win!')
+            break
+        case (computerChoice === choices[0] && paperChoice === choices[2]):
+            console.log('Rock beats scissors, the computer wins!')
+            break
+        case (computerChoice === choices[1] && paperChoice === choices[0]):
+            console.log('Paper beats rock, the computer wins!')
+            break
+        case (computerChoice === choices[2] && paperChoice === choices[1]):
+            console.log('Scissors beat paper, the computer wins!')
+            break
     }};
 
 let winner = player;
 
 function game() {
     for (let i = 0; i < 5; i++) {
-        console.log('Round ' + (i+1));
+        console.log('Round ' + (i + 1));
+        playerChoice();
+        computerChoice();
         round();
     }
     // End game - display winning message
