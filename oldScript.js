@@ -22,7 +22,7 @@ function player() {
         console.log(player);
         return player;
     } else {
-        player()
+        // player()
     }
 };
 
