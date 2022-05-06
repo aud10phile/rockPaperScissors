@@ -52,15 +52,15 @@ function round(playerChoice, computerChoice) {
         console.log('It\'s a tie!');
     }};
 
-function game() {
+round(playerChoice(), computerChoice());
+
+/* function game() {
     for (let i = 0; i < 5; i++) {
         console.log('Round ' + (i+1));
-        playerChoice();
-        computerChoice();
         round();
     }
     // End game - display winning message
     console.log('Good game!');
 };
 
-game()
+game() */
