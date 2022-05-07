@@ -8,15 +8,15 @@ function playerChoice() {
 
     if (playerSelection === choices[0]) {
         console.log('You played Rock');
-        return choices[0]
+        return choices[0];
     } else if (playerSelection === choices[1]) {
         console.log('You played Paper'); 
-        return choices[1]
+        return choices[1];
     } else if (playerSelection === choices[2]) {
         console.log('You played Scissors');
-        return choices[2]
+        return choices[2];
     } else {
-        playerChoice()
+        playerChoice();
     }};
 
 function computerChoice() {
