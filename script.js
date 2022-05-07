@@ -50,9 +50,9 @@ function round(playerChoice, computerChoice) {
         }
     };
 
-while (playerWins < 5 && computerWins < 5){
+while (playerWins < 5 && computerWins < 5) {
     round(playerChoice(), computerChoice());
     console.log(`You have ${playerWins} points and the computer has ${computerWins} points.`);
-}
+};
 
-console.log('Good game!');
+console.log(`Good game! Refresh to play again!`);
