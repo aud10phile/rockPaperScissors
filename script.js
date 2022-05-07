@@ -1,7 +1,7 @@
-// Define choices
 let choices = ['rock','paper','scissors'];
+let playerWins = 0;
+let computerWins = 0;
 
-// Create players
 function playerChoice() {
     let playerSelection =  prompt('Choose Rock, Paper or Scissors', '')
     playerSelection = playerSelection.toLowerCase('');
@@ -32,35 +32,27 @@ function computerChoice() {
         return choices[2];
     }};
 
-// Define superiority
-// Start round - check winner, display winner, prompt players to pick a move, display moves. If no winner, repeat round
 function round(playerChoice, computerChoice) {
-    // check for winner
-    if (playerChoice === choices[0] && computerChoice === choices[2]) {
-        console.log('You win');
-    } else if (playerChoice === choices[2] && computerChoice === choices[1]) {
-        console.log('You win');
-    } else if (playerChoice === choices[1] && computerChoice === choices[0]) {
-        console.log('You win');
-    } else if (computerChoice === choices[0] && playerChoice === choices[2]) {
-        console.log('Computer wins');
-    } else if (computerChoice === choices[2] && playerChoice === choices[1]) {
-        console.log('Computer wins');
-    } else if (computerChoice === choices[1] && playerChoice === choices[0]) {
-        console.log('Computer wins');
-    }else {
-        console.log('It\'s a tie!');
-    }};
+    switch (true) {
+        case playerChoice === choices[0] && computerChoice === choices[2]:
+        case playerChoice === choices[2] && computerChoice === choices[1]:
+        case playerChoice === choices[1] && computerChoice === choices[0]:
+            console.log('You win');
+            return playerWins++
+        case computerChoice === choices[0] && playerChoice === choices[2]:
+        case computerChoice === choices[2] && playerChoice === choices[1]:
+        case computerChoice === choices[1] && playerChoice === choices[0]:
+            console.log('Computer wins');
+            return computerWins++
+        case computerChoice === playerChoice:
+            console.log('It\'s a tie!');
+            break
+        }
+    };
 
-round(playerChoice(), computerChoice());
+while (playerWins < 5 && computerWins < 5){
+    round(playerChoice(), computerChoice());
+    console.log(`You have ${playerWins} points and the computer has ${computerWins} points.`);
+}
 
-/* function game() {
-    for (let i = 0; i < 5; i++) {
-        console.log('Round ' + (i+1));
-        round();
-    }
-    // End game - display winning message
-    console.log('Good game!');
-};
-
-game() */
+console.log('Good game!');
