@@ -47,8 +47,7 @@ function round(playerChoice, computerChoice) {
         case computerChoice === playerChoice:
             console.log('It\'s a tie!');
             break
-        }
-    };
+        }};
 
 while (playerWins < 5 && computerWins < 5) {
     round(playerChoice(), computerChoice());
